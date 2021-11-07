@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.24.0",
     "formik": "^2.2.9",
     "formik-material-ui-pickers": "^1.0.0-alpha.1",
     "framer-motion": "^4.1.17",
