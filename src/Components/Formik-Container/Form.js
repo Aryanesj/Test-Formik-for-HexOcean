@@ -2,6 +2,7 @@ import React from 'react'
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import FormikControl from './FormikControl.js'
+import '../../App.css'
 
 
 const ID_PIZZA = 'pizza';
@@ -127,7 +128,6 @@ const DishForm = () => {
 
             {formik.values.typeOfDish === ID_SOUP && (<>
               <FormikControl
-                className='form-nubmer'
                 control='input'
                 label='Spiciness scale:'
                 name='spicinessScale'
@@ -139,7 +139,6 @@ const DishForm = () => {
 
             {formik.values.typeOfDish === ID_SANDWICH && (<>
               <FormikControl
-                className='form-nubmer'
                 control='input'
                 label='Slices of bread:'
                 name='sliceBread'
@@ -150,7 +149,7 @@ const DishForm = () => {
               />
             </>)}
 
-            <button type='submit' disabled={!formik.isValid}>Submit</button>
+            <button type='submit' className='btn-submit' disabled={!formik.isValid}>Submit</button>
           </Form>
         }
       }

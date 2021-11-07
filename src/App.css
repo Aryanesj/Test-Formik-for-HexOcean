@@ -1,22 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+body {
+  background: #f2e6ff;
+  font-family: 'Libre Baskerville', serif;
+}
+
 .App {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 label {
   font-weight: bold;
   display: flex;
   margin-bottom: 5px;
+  font-family: 'Libre Baskerville', serif;
+  padding-bottom: 7px;
 }
 
 input {
   padding: 5px 5px 5px 2px;
+  border: 2px solid  black;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 input + label {
   font-weight: bold;
   display: inline-flex;
   margin-right: 20px;
+}
+
+input:hover {
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 8px 0 gray inset, 0 0 8px 2px gray;
+          box-shadow: 0 0 8px 0 gray inset, 0 0 8px 2px gray;
+          -webkit-transition: all 500ms;
+  transition: all 500ms;
 }
 
 input[type='text'],
@@ -27,17 +50,33 @@ textarea {
   padding: 6px, 12px;
   font-size: 14px;
   line-height: 1.42;
-  color: #555;
-  background-color: #fff;
+  color: black;
+  font-family: 'Libre Baskerville', serif;
+  background-color: transparent;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 2px solid black;
   border-radius: 3px;
   cursor: pointer;
   /*margin-bottom: 20px;*/
 }
 
 select {
-  width: 400px;
+  font-family: 'Libre Baskerville', serif;
+  display: block;
+  background-color: transparent;
+  width: 410px;
+  padding: 6px, 12px;
+  border: 2px solid black;
+  border-radius: 3px;
+  line-height: 1.42;
+}
+
+select:hover {
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 8px 0 gray inset, 0 0 8px 2px gray;
+          box-shadow: 0 0 8px 0 gray inset, 0 0 8px 2px gray;
+          -webkit-transition: all 500ms;
+  transition: all 500ms;
 }
 
 .form-control {
@@ -67,4 +106,30 @@ select {
 input[type='number'] {
   width: 90px;
   padding: 5px 5px 5px 2px;
+}
+
+.btn-submit {
+  margin-top: 20px;
+  font-size: 15px;
+  color: black;
+  -webkit-transition: 1s;
+  transition: 1s;
+  letter-spacing: 1.3px;
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 8px 0 gray inset, 0 0 8px 3px gray;
+          box-shadow: 0 0 8px 0 gray inset, 0 0 8px 3px gray;
+  padding: 9px 25px 9px 25px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 329px) and (max-width: 450px) {
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    width: 300px;
+      }
+  select {
+    width: 310px;
+  }
 }
