@@ -63,14 +63,9 @@ const DishForm = () => {
       }
     }
 
-    // ФИНАЛЬНЫЙ ОБЪЕКТ С ДАННЫМИ!!!
+    // FINAL DATA OBJECT!!!
     const data = {...commonData, ...variantData};
 
-    // var express = require('express')
-    // var cors = require('cors')
-    // var app = express()
-    // app.use(cors())
-  
   axios
     .post('https://frosty-wood-6558.getsandbox.com/dishes', data)
     .then(function (response) {
@@ -78,8 +73,8 @@ const DishForm = () => {
     })
     .catch(function (error) {
     console.log(error);
+    alert('Failed to make request! ' + JSON.stringify(error.message))
     });
-
 
     console.log(data);
   }
