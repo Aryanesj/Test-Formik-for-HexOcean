@@ -2,8 +2,7 @@ import React from 'react'
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import FormikControl from './FormikControl.js'
-import '../../App.css'
-
+import axios from 'axios'
 
 const ID_PIZZA = 'pizza';
 const ID_SOUP = 'soup';
@@ -20,7 +19,7 @@ const DishForm = () => {
 
   const initialValues = {
     dish: '',
-    timeDish: '',
+    cookingTimeDish: '',
     typeOfDish: '',
     numberOfSlices: '',
     diameter: '',
@@ -30,7 +29,7 @@ const DishForm = () => {
 
   const validationSchema = Yup.object({
     dish: Yup.string().required('Required'),
-    timeDish: Yup.string().required('Required'),
+    cookingTimeDish: Yup.string().required('Required'),
     typeOfDish: Yup.string().required('Required'),
     numberOfSlices: Yup.number().when('typeOfDish', (typeOfDish, schema) => typeOfDish === ID_PIZZA ? schema.required('Required') : schema.nullable()),
     diameter: Yup.number().when('typeOfDish', (typeOfDish, schema) => typeOfDish === ID_PIZZA ? schema.required('Required') : schema.nullable()),
@@ -41,7 +40,7 @@ const DishForm = () => {
   const onSubmit = values => {
     const commonData = {
       dish: values.dish,
-      timeDish: values.timeDish,
+      cookingTimeDish: values.cookingTimeDish,
       typeOfDish: values.typeOfDish,
     }
     let variantData = {};
@@ -67,6 +66,21 @@ const DishForm = () => {
     // ФИНАЛЬНЫЙ ОБЪЕКТ С ДАННЫМИ!!!
     const data = {...commonData, ...variantData};
 
+    // var express = require('express')
+    // var cors = require('cors')
+    // var app = express()
+    // app.use(cors())
+  
+  axios
+    .post('https://frosty-wood-6558.getsandbox.com/dishes', data)
+    .then(function (response) {
+    console.log(response);
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
+
+
     console.log(data);
   }
 
@@ -79,7 +93,6 @@ const DishForm = () => {
     >
       {
         formik => {
-          // console.log(formik.values);
           return <Form className='form-control'>
 
             <FormikControl
@@ -92,7 +105,7 @@ const DishForm = () => {
             <FormikControl
               control='date'
               label='Choose a cooking time'
-              name='timeDish'
+              name='cookingTimeDish'
             />
 
             <FormikControl
